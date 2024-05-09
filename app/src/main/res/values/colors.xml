@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="uiBackground">#FF7700</color>
+    <color name="weatherBackground">#0044FF</color>
+    <color name="pharmacyBackground">#6EBE45</color>
+    <color name="redExit">#FF0000</color>
+
+
 </resources>

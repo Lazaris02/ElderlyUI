@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">ElderlyUI</string>
+    <string name="battery">Battery</string>
+    <string name="time">Time</string>
+    <string name="pills">Χάπια</string>
+    <string name="list">Τεφτέρι</string>
+    <string name="jokes">Ανέκδοτα</string>
+    <string name="danger">Κινδυνεύω</string>
+    <string name="positions">Που Είμαι;</string>
+    <string name="call">Κλήση</string>
+
 </resources>
