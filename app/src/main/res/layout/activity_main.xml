@@ -30,7 +30,7 @@
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/battery"
         android:textColor="@color/white"
-        android:textSize="26sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -124,7 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/jokes"
         android:textColor="@color/black"
@@ -150,7 +150,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginEnd="32dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/positions"
         android:textColor="@color/black"
@@ -158,5 +158,99 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/positionApp" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/weatherBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar" />
+
+    <TextView
+        android:id="@+id/widgetText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:text="@string/widgetText"
+        android:textColor="@color/white"
+        android:fontFamily="@font/noto_sans_bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar" />
+
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="134dp"
+        android:layout_height="151dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toTopOf="@+id/view"
+        app:srcCompat="@drawable/sunny"/>
+
+
+    <ImageButton
+        android:id="@+id/dangerApp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="256dp"
+        android:background="@color/black"
+        android:clickable="false"
+        android:cropToPadding="true"
+        android:fadingEdge="none"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
+        app:srcCompat="@drawable/danger"
+        android:visibility="gone"
+
+        />
+
+
+    <TextView
+        android:id="@+id/textDanger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/danger"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dangerApp"
+        android:visibility="gone"
+        />
+
+    <ImageButton
+        android:id="@+id/listApp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="256dp"
+        android:layout_marginEnd="24dp"
+        android:background="@color/black"
+        android:cropToPadding="true"
+        android:fadingEdge="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
+        app:srcCompat="@drawable/list"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/textList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="32dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/list"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listApp"
+        android:visibility="gone"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
