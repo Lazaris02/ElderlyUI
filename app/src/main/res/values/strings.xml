@@ -8,5 +8,6 @@
     <string name="danger">Κινδυνεύω</string>
     <string name="positions">Που Είμαι;</string>
     <string name="call">Κλήση</string>
+    <string name="widgetText">The place , Temperature and Time</string>
 
 </resources>
