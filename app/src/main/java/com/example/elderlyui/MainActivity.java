@@ -33,6 +33,7 @@ import java.net.URL;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -171,10 +172,12 @@ public class MainActivity extends AppCompatActivity {
 
     private final Runnable updateTime = new Runnable() {
         //runnable for periodic time updates
+        //updates time on a separate thread
         @Override
         public void run() {
             //get current time
-            Calendar calendar = Calendar.getInstance();
+            TimeZone timeZone = TimeZone.getTimeZone("Europe/Athens");
+            Calendar calendar = Calendar.getInstance(timeZone);
             int hour = calendar.get(Calendar.HOUR_OF_DAY);
             int minute = calendar.get(Calendar.MINUTE);
 
