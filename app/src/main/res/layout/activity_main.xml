@@ -58,13 +58,14 @@
         android:layout_height="140dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="256dp"
-        android:background="@color/black"
+        android:scaleType="fitCenter"
+        android:background="@drawable/rounded_button"
         android:clickable="false"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
-        app:srcCompat="@drawable/pills" />
+        app:srcCompat="@drawable/pills"/>
 
     <TextView
         android:id="@+id/textPills"
@@ -81,11 +82,12 @@
 
     <ImageButton
         android:id="@+id/callApp"
+        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="132dp"
-        android:background="@color/black"
+        android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintStart_toStartOf="parent"
@@ -108,11 +110,12 @@
 
     <ImageButton
         android:id="@+id/jokesApp"
+        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="132dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/black"
+        android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,11 +137,12 @@
 
     <ImageButton
         android:id="@+id/positionApp"
+        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="256dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/black"
+        android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,6 +178,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:text="@string/widgetText"
+        android:textSize="24dp"
         android:textColor="@color/white"
         android:fontFamily="@font/noto_sans_bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,11 +196,12 @@
 
     <ImageButton
         android:id="@+id/dangerApp"
+        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="256dp"
-        android:background="@color/black"
+        android:background="@drawable/rounded_button"
         android:clickable="false"
         android:cropToPadding="true"
         android:fadingEdge="none"
@@ -211,7 +217,7 @@
         android:id="@+id/textDanger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="2dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/danger"
@@ -224,11 +230,12 @@
 
     <ImageButton
         android:id="@+id/listApp"
+        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="256dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/black"
+        android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintEnd_toEndOf="parent"
@@ -242,7 +249,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="45dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/list"
         android:textColor="@color/black"

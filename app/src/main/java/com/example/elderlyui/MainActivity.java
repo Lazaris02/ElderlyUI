@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -43,11 +44,12 @@ public class MainActivity extends AppCompatActivity {
 
     private ImageButton callIcon,positionIcon,jokesIcon,pillsIcon,listIcon,dangerIcon;
     private AppsContainer[] LeftScreen,RightScreen;
-    private boolean isLeft = true;
+    private boolean isLeft = true; //keeps track of which screen we are on
 
+    private ImageView weatherImg;
     private Handler handler;
 
-    private float x_start,x_end,y_start,y_end;
+    private float x_start,x_end;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
         batteryView = findViewById(R.id.batteryText);
         timeView = findViewById(R.id.timeText);
         widgetTextView = findViewById(R.id.widgetText);
+        weatherImg = findViewById(R.id.weatherImage);
 
         jokesIcon = findViewById(R.id.jokesApp);
         jokesText = findViewById(R.id.textJokes);
@@ -116,8 +119,8 @@ public class MainActivity extends AppCompatActivity {
         AppsContainer listApp = new AppsContainer(listIcon,listText);
         AppsContainer pillsApp = new AppsContainer(pillsIcon,pillsText);
 
-        LeftScreen = new AppsContainer[]{callApp, positionApp, dangerApp, pillsApp};
-        RightScreen = new AppsContainer[]{jokesApp,listApp};
+        LeftScreen = new AppsContainer[]{callApp, positionApp, jokesApp, pillsApp};
+        RightScreen = new AppsContainer[]{listApp,dangerApp};
 
 
     }
@@ -129,11 +132,9 @@ public class MainActivity extends AppCompatActivity {
         switch(touchEvent.getAction()){
             case MotionEvent.ACTION_DOWN:
                 x_start = touchEvent.getX();
-                y_start = touchEvent.getY();
                 break;
             case MotionEvent.ACTION_UP:
                 x_end = touchEvent.getX();
-                y_end = touchEvent.getY();
                 if((x_start < x_end && !isLeft) || (x_start > x_end && isLeft)){
                     swapScreen();
                 }
@@ -279,10 +280,24 @@ public class MainActivity extends AppCompatActivity {
                 String temperature = temperature_value + temperature_metric;
 
                 //extract the other info I need (if it is day or not, the description of the weather)
-                String isDay = currentInfo.getString("is_day"); //weather it is morning or not
+                Integer isDay = (Integer) currentInfo.get("is_day"); //weather it is morning or not
                 String weatherCondition = wmo_codes.get(currentInfo.getString("weather_code"));
 
-                //modify the text of the widget
+                //we dynamically decide on the image we use for the widget
+                String imageName = WeatherInfo.decideWeatherIcon(weatherCondition,isDay);
+
+                //convert the name to the actual resource in the drawables folder.
+                int resourceId = getResources().getIdentifier(imageName, "drawable", getPackageName());
+                if (resourceId != 0) {
+                    // If the resource exists, set it to the ImageView
+                    weatherImg.setImageResource(resourceId);
+                } else {
+                    // If the resource does not exist, handle the error
+                    Log.e("ImageError", "Image with name " + imageName + " not found");
+                }
+
+                //modify the text and icon of the widget
+
                 widgetTextView.setText("Αθήνα\nΘερμοκρασία:"+temperature+"\n"+weatherCondition+"!");
             } catch (JSONException e) {
                 throw new RuntimeException(e);
@@ -290,19 +305,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
         private void createWmoMap(){
-            /*The map of codes to String names according
-             * to the API */
-            String[] codes = {"0","1","2",
-                    "3","45","48","51","53",
-                    "55","56","57","61","63",
-                    "65","66","67","71","73","75","77",
-                    "80","81","82","85","86","95","96","99"};
-            String[] names = {"Καθαρός","Συνεφειά","Συνεφειά","Συνεφειά","Ομίχλη","Ομίχλη",
-                    "Φωτεινός","Φωτεινός","Φωτεινός","Χιονόνερο","Χιονόνερο","Βροχή","Βροχή","Βροχή"
-                    ,"Χιονόνερο","Χιονόνερο","Χιόνι","Χιόνι","Χιόνι","Χιόνι"
-                    ,"Βροχή","Βροχή","Βροχή","Χιόνι","Χιόνι",
-                    "Καταιγίδα","Καταιγίδα με Χαλάζι","Καταιγίδα με Χαλάζι"};
+            String[] codes = WeatherInfo.getCodes();
+            String[] names = WeatherInfo.getNames();
 
+            /*creates a HashMap with key:weather code value:name of weather*/
 
             wmo_codes = new HashMap<>();
             for(int i=0; i < names.length; i++){
