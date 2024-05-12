@@ -9,5 +9,9 @@
     <string name="positions">Που Είμαι;</string>
     <string name="call">Κλήση</string>
     <string name="widgetText">The place , Temperature and Time</string>
+    <string name="filler">Filler</string>
+    <string name="help_button">ΚΑΛΕΣΕ\nΒΟΗΘΕΙΑ</string>
+    <string name="taxi_text">\tΚΑΛΕΣΕ\n \t\t\t ΤΑΞΙ</string>
+    <string name="exit_text">\t\t\tΕΞΟΔΟΣ \n ΕΦΑΡΜΟΓΗΣ</string>
 
 </resources>
