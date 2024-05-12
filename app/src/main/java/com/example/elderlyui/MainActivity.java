@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     private Handler handler;
 
     private float x_start,x_end;
+    protected String temperatureValue; //passed to other activities
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +100,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        positionIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(),PositionsActivity.class);
+                //pack the variables the activity needs
+                myIntent.putExtra("temperature",temperatureValue);
+                startActivity(myIntent);
+            }
+        });
         registerReceiver(batteryReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
         handler = new Handler();
         getWeather();
@@ -278,7 +288,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //make it a concatinated string
                 String temperature = temperature_value + temperature_metric;
-
+                temperatureValue = temperature;
                 //extract the other info I need (if it is day or not, the description of the weather)
                 Integer isDay = (Integer) currentInfo.get("is_day"); //weather it is morning or not
                 String weatherCondition = wmo_codes.get(currentInfo.getString("weather_code"));
