@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import org.w3c.dom.Text;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -22,6 +24,8 @@ public class PositionsActivity extends AppCompatActivity {
     private TextView street_text;
     private TextView help_button;
     private TextView call_taxi_button;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +42,7 @@ public class PositionsActivity extends AppCompatActivity {
         TextView street_text = findViewById(R.id.street_text);
         TextView help_button = findViewById(R.id.help_button); //redirects to the dangerApp
         TextView call_taxi_button = findViewById(R.id.taxiButton); //redirects to callApp with taxiNum
-
+        TextView exit_app =  findViewById(R.id.exit_text);
 
         //modify Date
         String cityTimeZone = "Europe/Athens"; //passed from previous activity
@@ -51,6 +55,18 @@ public class PositionsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /*redirect to the dangerApp!*/
+                Intent myIntent = new Intent(v.getContext(),DangerActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        exit_app.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                /*returns to the main screen*/
+                Intent myIntent = new Intent(v.getContext(),MainActivity.class);
+                //pack the variables the activity needs
+                startActivity(myIntent);
             }
         });
 
@@ -59,8 +75,12 @@ public class PositionsActivity extends AppCompatActivity {
             public void onClick(View v){
                 /*redirects to the call app with a taxi number
                 * as parameter*/
+                Intent myIntent = new Intent(v.getContext(),CallActivity.class);
+                myIntent.putExtra("taxiNumber","8888888");
+                startActivity(myIntent);
             }
         });
+
     }
     private String getDate(String cityTimeZone){
         /*gets the current date in greek and returns it as a String*/

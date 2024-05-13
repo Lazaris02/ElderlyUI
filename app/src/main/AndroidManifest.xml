@@ -17,10 +17,16 @@
         android:theme="@style/Theme.ElderlyUI"
         tools:targetApi="31">
         <activity
-            android:name=".PositionsActivity"
+            android:name=".CallNumberActivity"
             android:exported="false" />
         <activity
             android:name=".CallActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DangerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PositionsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
