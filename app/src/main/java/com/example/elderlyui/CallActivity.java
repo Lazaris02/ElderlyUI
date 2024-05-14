@@ -48,7 +48,7 @@ public class CallActivity extends AppCompatActivity {
             @Override
             public void onInit(int status) {
                 if (status == TextToSpeech.SUCCESS) {
-                    // Set the language to Greek
+                    //set the language to Greek
                     int result = tts.setLanguage(new Locale("el")); //set language greek
                     if(result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
                         Toast.makeText(CallActivity.this,"Text to speech not Supported",Toast.LENGTH_SHORT).show();
@@ -78,7 +78,7 @@ public class CallActivity extends AppCompatActivity {
         phoneText.setText(phoneNumber);
     }
 
-    public void speak(String text) {
+    private void speak(String text) {
         if (tts != null) {
             //reads the text in greek
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
