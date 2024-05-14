@@ -1,20 +1,42 @@
 package com.example.elderlyui;
 
+
+
+
+import static com.google.android.gms.location.Priority.PRIORITY_HIGH_ACCURACY;
+
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.Manifest;
+import android.widget.Toast;
+
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
-import org.w3c.dom.Text;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -22,8 +44,10 @@ public class PositionsActivity extends AppCompatActivity {
 
     private TextView city_text;
     private TextView street_text;
-    private TextView help_button;
-    private TextView call_taxi_button;
+
+
+    FusedLocationProviderClient fusedLocationProviderClient;
+    private final static int REQUEST_CODE=100; //for location
 
 
     @Override
@@ -32,24 +56,51 @@ public class PositionsActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_positions);
 
-        // Remove the status bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        /*manual location request */
+        LocationRequest locationRequest = new  LocationRequest.Builder(PRIORITY_HIGH_ACCURACY, 100)
+                .setWaitForAccurateLocation(false)
+                .setMinUpdateIntervalMillis(2000)
+                .setMaxUpdateDelayMillis(100)
+                .build();
+
+
+        LocationCallback locationCallback = new LocationCallback() {
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+
+                if (locationResult == null) {
+                    return;
+                }
+            }
+        };
+
+        LocationServices.getFusedLocationProviderClient(getApplicationContext())
+                .requestLocationUpdates(locationRequest,locationCallback,null);
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        checkForLocationPermission();
+
         //get all the views I need
-        TextView city_text = findViewById(R.id.city_text);
+        city_text = findViewById(R.id.city_text);
         TextView date_text = findViewById(R.id.textDate);
-        TextView street_text = findViewById(R.id.street_text);
+        street_text = findViewById(R.id.street_text);
         TextView help_button = findViewById(R.id.help_button); //redirects to the dangerApp
         TextView call_taxi_button = findViewById(R.id.taxiButton); //redirects to callApp with taxiNum
         TextView exit_app =  findViewById(R.id.exit_text);
 
         //modify Date
-        String cityTimeZone = "Europe/Athens"; //passed from previous activity
+        String cityTimeZone = "Europe/Athens";
         date_text.setText(getDate(cityTimeZone));
+
 
         //modify temperature
         modifyTemperature();
+        getLocation();
+        //read the screen?
 
         help_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,5 +155,56 @@ public class PositionsActivity extends AppCompatActivity {
             temperature = b.getString("temperature");
         }
         temperature_text.setText(temperature);
+    }
+
+    private void checkForLocationPermission(){
+        //checks if location permission was given
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+            //if permission is not granted , ask for it
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    REQUEST_CODE); //the request location permission code
+        } else {
+            Toast.makeText(PositionsActivity.this,"Location Permission granted",Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void getLocation(){
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            //if the permission for location has been granted
+
+            fusedLocationProviderClient.getLastLocation()
+                    .addOnSuccessListener(new OnSuccessListener<Location>() {
+                        @Override
+                        public void onSuccess(Location location) {
+                            /*get last location takes the last cached location
+                            * that means that the device needs to have one cached*/
+                            if(location != null){
+                                Locale greek = new Locale("el", "GR");
+                                Geocoder geocoder = new Geocoder(PositionsActivity.this,greek);
+                                try {
+                                    List<Address> addressList = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
+                                    Address address = addressList.get(0); //extract the info we need
+                                    String city = address.getLocality()+" "+address.getCountryName();
+                                    city_text.setText(city);
+                                    street_text.setText(address.getAddressLine(0));
+
+
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+
+                            }else{
+
+                            }
+                        }
+                    });
+        }
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

@@ -330,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy(){
-        super.onDestroy();
         handler.removeCallbacks(updateTime);
+        super.onDestroy();
     }
 }

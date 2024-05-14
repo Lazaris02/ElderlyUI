@@ -21,4 +21,10 @@ public class CallNumberActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
+    }
 }

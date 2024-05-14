@@ -18,4 +18,9 @@ public class DangerActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    protected void onDestroy() {
+
+        super.onDestroy();
+    }
 }
