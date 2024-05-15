@@ -114,6 +114,13 @@ public class MainActivity extends AppCompatActivity {
         getWeather();
         updateTime.run(); //start updating time on a new thread
 
+        jokesIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), JokesActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     private void setupAppObjects(){
