@@ -121,6 +121,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        dangerIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), DangerActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     private void setupAppObjects(){

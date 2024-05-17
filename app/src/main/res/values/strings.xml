@@ -13,5 +13,7 @@
     <string name="help_button">ΚΑΛΕΣΕ\nΒΟΗΘΕΙΑ</string>
     <string name="taxi_text">\tΚΑΛΕΣΕ\n \t\t\t ΤΑΞΙ</string>
     <string name="exit_text">\t\t\tΕΞΟΔΟΣ \n ΕΦΑΡΜΟΓΗΣ</string>
-
+    <string name="dangerText">ΠΑΤΗΣΤΕ ΤΟ ΚΟΚΚΙΝΟ ΚΟΥΜΠΙ ΓΙΑ ΝΑ ΕΝΗΜΕΡΩΘΟΥΝ ΟΙ ΦΥΛΑΚΕΣ ΣΑΣ!</string>
+    <string name="dangerButton">ΚΙΝΔΥΝΕΥΩ</string>
+    <string name="dangerMessage">ΝΑ ΓΙΝΕΙ ΚΛΗΣΗ ΑΣΤΥΝΟΜΙΑΣ ΚΑΙ ΚΗΔΕΜΟΝΩΝ;</string>
 </resources>

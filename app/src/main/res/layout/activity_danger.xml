@@ -5,6 +5,90 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECEFF4"
     tools:context=".DangerActivity">
 
+    <TextView
+        android:id="@+id/exit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:background="@drawable/exitbackground"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="20dp"
+        android:text="@string/exit_text"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/exit_text"
+        app:layout_constraintEnd_toEndOf="@+id/exit_text"
+        app:layout_constraintStart_toStartOf="@+id/exit_text"
+        app:layout_constraintTop_toTopOf="@+id/exit_text"
+        app:srcCompat="@drawable/exit" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:text="@string/dangerText"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/dangerButton"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="14dp"
+        android:background="@android:color/transparent"
+        android:cropToPadding="true"
+        android:padding="0dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:srcCompat="@drawable/danger_button" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/dangerButton"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dangerButton"
+        app:layout_constraintEnd_toEndOf="@+id/dangerButton"
+        app:layout_constraintStart_toStartOf="@+id/dangerButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/warning_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/warning_background"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="FillerText"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/exit_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dangerButton"
+        app:layout_constraintVertical_bias="0.396" />
 </androidx.constraintlayout.widget.ConstraintLayout>
