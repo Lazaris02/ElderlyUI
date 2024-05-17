@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9C4"
+    tools:context=".JokeSingleActivity">
+
+    <TextView
+        android:id="@+id/exit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/exitbackground"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="20dp"
+        android:text="@string/exit_text"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/exit_text"
+        app:layout_constraintEnd_toEndOf="@+id/exit_text"
+        app:layout_constraintStart_toStartOf="@+id/exit_text"
+        app:layout_constraintTop_toTopOf="@+id/exit_text"
+        app:srcCompat="@drawable/exit" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toStartOf="@+id/jokeTitle"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/jokes" />
+
+    <TextView
+        android:id="@+id/jokeTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="152dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Title Here"
+        android:textColor="@color/black"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/theJoke"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="The Joke Text"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@+id/jokeTitle"
+        tools:layout_editor_absoluteX="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

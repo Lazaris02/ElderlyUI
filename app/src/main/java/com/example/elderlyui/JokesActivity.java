@@ -3,6 +3,8 @@ package com.example.elderlyui;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 
 
@@ -17,12 +19,15 @@ public class JokesActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_jokes);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         ImageButton classicJokes = findViewById(R.id.classicJokes);
         ImageButton animalJokes = findViewById(R.id.animalJokes);
         ImageButton familyJokes = findViewById(R.id.familyJokes);
-        ImageButton smartJokes = findViewById(R.id.smartJokes);
+        ImageButton smartJokes = findViewById(R.id.smartJokesButton);
 
         classicJokes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +59,7 @@ public class JokesActivity extends AppCompatActivity {
         smartJokes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(), JokesActivity.class);
+                Intent myIntent = new Intent(v.getContext(), JokesListActivity.class);
                 myIntent.putExtra("jokesCategory",3);
                 startActivity(myIntent);
             }

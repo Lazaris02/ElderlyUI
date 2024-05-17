@@ -5,6 +5,20 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFF9C4"
     tools:context=".JokesListActivity">
 
+    <ListView
+        android:id="@+id/jokesList"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="1dp"
+        android:divider="@color/black"
+        android:dividerHeight="2dp"
+        android:listSelector="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
