@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
@@ -26,8 +27,13 @@ public class CallActivity extends AppCompatActivity {
     private String phoneNumber;
     private TextView phoneText;
     private TextToSpeech tts;
+    private String favourite;
+
+    private static final int CALL_REQ = 133;
 
     private HashMap<String,String> favouriteCallers;
+    private HashMap<String,String> favouriteNumbers;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +47,8 @@ public class CallActivity extends AppCompatActivity {
         phoneText = findViewById(R.id.phoneNumberText);
         /*a favourite caller might be passed*/
         Intent intent = getIntent();
-        phoneNumber = findFavourite(intent.getStringExtra("callerId"));
+        favourite = intent.getStringExtra("callerId");
+        phoneNumber = findFavouriteNumber(favourite);
         phoneNumber = (phoneNumber == null) ? "" : phoneNumber;
         phoneText.setText(phoneNumber);
 
@@ -65,9 +72,11 @@ public class CallActivity extends AppCompatActivity {
     }
 
     private void initializeFavouriteCallers() {
-        /*initializes the favourites list from a .txt file*/
+        /*initializes the favourites list from a .txt file
+        * we need two hashmaps for both types of lookups*/
         AssetManager assetManager = getAssets();
-        favouriteCallers = new HashMap<>();
+        favouriteCallers = new HashMap<>(); /*key:caller value:phoneNumber*/
+        favouriteNumbers = new HashMap<>(); /*key:phoneNumber value:caller*/
 
         try (InputStream inputStream = assetManager.open("favouritePhones.txt");
              BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
@@ -77,15 +86,17 @@ public class CallActivity extends AppCompatActivity {
                 phone = reader.readLine(); // number
                 reader.readLine(); // the ///
                 favouriteCallers.put(name,phone);
+                favouriteNumbers.put(phone,name);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    private String findFavourite(String callerId) {
+    private String findFavouriteNumber(String callerId) {
         return favouriteCallers.get(callerId);
     }
+    private String findFavouriteName(String phoneNumber){return favouriteNumbers.get(phoneNumber);}
 
     private void clearDigits(){
         phoneNumber = "";
@@ -97,12 +108,14 @@ public class CallActivity extends AppCompatActivity {
         phoneNumber = phoneNumber.concat(digit);
         speak(digit);
         phoneText.setText(phoneNumber);
+        favourite = findFavouriteName(phoneNumber);
     }
 
     private void removeDigit(){
         phoneNumber = (phoneNumber == null || phoneNumber.isEmpty())
                 ? null : phoneNumber.substring(0,phoneNumber.length()-1);
         phoneText.setText(phoneNumber);
+        favourite = findFavouriteName(phoneNumber);
     }
 
     private void speak(String text) {
@@ -201,9 +214,11 @@ public class CallActivity extends AppCompatActivity {
         findViewById(R.id.callButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(phoneNumber.isEmpty()){return;}
                 Intent myIntent = new Intent(v.getContext(),CallNumberActivity.class);
+                myIntent.putExtra("favouriteName",favourite);
                 myIntent.putExtra("phone",phoneNumber);
-                startActivity(myIntent);
+                startActivityForResult(myIntent,CALL_REQ);
             }
         });
 
@@ -215,6 +230,15 @@ public class CallActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CALL_REQ && resultCode == RESULT_OK && data != null) {
+            phoneNumber = data.getStringExtra("callerNumber");
+            phoneText.setText(phoneNumber);
+        }
     }
     @Override
     protected void onDestroy() {
