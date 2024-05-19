@@ -8,6 +8,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,7 +44,7 @@ public class JokeSingleActivity extends AppCompatActivity {
         jokeContent.setText(joke);
 
         TextView exitButton = findViewById(R.id.exit_text);
-
+        ImageButton backArrow = findViewById(R.id.backArrow);
 
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -65,9 +66,18 @@ public class JokeSingleActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), MainActivity.class);
                 startActivity(myIntent);
+                finish();
             }
         });
 
+        backArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), JokesActivity.class);
+                startActivity(myIntent);
+                finish();
+            }
+        });
 
     }
 

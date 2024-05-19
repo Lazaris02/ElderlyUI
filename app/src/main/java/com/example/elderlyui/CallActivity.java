@@ -1,10 +1,9 @@
 package com.example.elderlyui;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,8 +13,11 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
-
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.Locale;
 
 
@@ -25,6 +27,7 @@ public class CallActivity extends AppCompatActivity {
     private TextView phoneText;
     private TextToSpeech tts;
 
+    private HashMap<String,String> favouriteCallers;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,15 +36,16 @@ public class CallActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        phoneText = findViewById(R.id.phoneNumberText);
+        initializeFavouriteCallers(); //initializes the favourites list
 
-        /*on create it might be passed params from other activities*/
+        phoneText = findViewById(R.id.phoneNumberText);
+        /*a favourite caller might be passed*/
         Intent intent = getIntent();
-        phoneNumber = intent.getStringExtra("phoneNumber");
+        phoneNumber = findFavourite(intent.getStringExtra("callerId"));
         phoneNumber = (phoneNumber == null) ? "" : phoneNumber;
         phoneText.setText(phoneNumber);
 
-        //get All the views
+        //get all the views
         setupOnClickListeners();
 
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
@@ -58,6 +62,29 @@ public class CallActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private void initializeFavouriteCallers() {
+        /*initializes the favourites list from a .txt file*/
+        AssetManager assetManager = getAssets();
+        favouriteCallers = new HashMap<>();
+
+        try (InputStream inputStream = assetManager.open("favouritePhones.txt");
+             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            String name,phone,line;
+            while ((line = reader.readLine()) != null) {
+                name = line; /// name
+                phone = reader.readLine(); // number
+                reader.readLine(); // the ///
+                favouriteCallers.put(name,phone);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String findFavourite(String callerId) {
+        return favouriteCallers.get(callerId);
     }
 
     private void clearDigits(){
@@ -177,6 +204,15 @@ public class CallActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(v.getContext(),CallNumberActivity.class);
                 myIntent.putExtra("phone",phoneNumber);
                 startActivity(myIntent);
+            }
+        });
+
+        findViewById(R.id.exit_text).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(),MainActivity.class);
+                startActivity(myIntent);
+                finish();
             }
         });
     }

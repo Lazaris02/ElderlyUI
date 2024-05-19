@@ -55,6 +55,7 @@ public class DangerActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(),MainActivity.class);
                 startActivity(myIntent);
+                finish();
             }
         });
 

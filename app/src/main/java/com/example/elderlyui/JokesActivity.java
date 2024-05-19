@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class JokesActivity extends AppCompatActivity {
         ImageButton animalJokes = findViewById(R.id.animalJokes);
         ImageButton familyJokes = findViewById(R.id.familyJokes);
         ImageButton smartJokes = findViewById(R.id.smartJokesButton);
+        TextView exitText = findViewById(R.id.exit_text);
 
         classicJokes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,6 +66,15 @@ public class JokesActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        exitText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(),MainActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
     }
 
 

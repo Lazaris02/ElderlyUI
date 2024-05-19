@@ -10,25 +10,35 @@
 
 
     <TextView
-        android:id="@+id/button1"
+        android:id="@+id/exit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/phone_button"
-        android:backgroundTint="@null"
-        android:padding="20dp"
-        android:text="1"
+        android:background="@drawable/rounded_button_border"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="10dp"
+        android:text="@string/exit_text"
         android:textColor="@color/black"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
-        app:layout_constraintEnd_toStartOf="@+id/button2" />
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/buttonHash"
+        app:layout_constraintStart_toEndOf="@+id/button0"
+        app:layout_constraintTop_toBottomOf="@+id/button0" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        app:layout_constraintBottom_toBottomOf="@+id/exit_text"
+        app:layout_constraintEnd_toEndOf="@+id/exit_text"
+        app:layout_constraintStart_toStartOf="@+id/exit_text"
+        app:layout_constraintTop_toTopOf="@+id/exit_text"
+        app:srcCompat="@drawable/exit" />
 
     <TextView
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/phone_button"
         android:backgroundTint="@null"
         android:padding="20dp"
@@ -40,47 +50,16 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/button3"
+        android:id="@+id/button0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="180dp"
         android:background="@drawable/phone_button"
-        android:backgroundTint="@null"
         android:padding="20dp"
-        android:text="3"
+        android:text="0"
         android:textColor="@color/black"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
-        app:layout_constraintStart_toEndOf="@+id/button2" />
-
-    <TextView
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/phone_button"
-        android:backgroundTint="@null"
-        android:padding="20dp"
-        android:text="4"
-        android:textColor="@color/black"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button7"
-        app:layout_constraintEnd_toStartOf="@+id/button5" />
-
-    <TextView
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/phone_button"
-        android:backgroundTint="@null"
-        android:padding="20dp"
-        android:text="5"
-        android:textColor="@color/black"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -88,8 +67,8 @@
         android:id="@+id/button6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/phone_button"
         android:backgroundTint="@null"
         android:padding="20dp"
@@ -100,41 +79,11 @@
         app:layout_constraintStart_toEndOf="@+id/button5" />
 
     <TextView
-        android:id="@+id/button7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/phone_button"
-        android:backgroundTint="@null"
-        android:padding="20dp"
-        android:text="7"
-        android:textColor="@color/black"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/buttonStar"
-        app:layout_constraintEnd_toStartOf="@+id/button8" />
-
-    <TextView
-        android:id="@+id/button8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/phone_button"
-        android:backgroundTint="@null"
-        android:padding="20dp"
-        android:text="8"
-        android:textColor="@color/black"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/button0"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/button9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/phone_button"
         android:backgroundTint="@null"
         android:padding="20dp"
@@ -148,50 +97,125 @@
         android:id="@+id/buttonStar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="180dp"
         android:background="@drawable/phone_button"
         android:backgroundTint="@null"
         android:padding="20dp"
         android:text="*"
         android:textColor="@color/black"
         android:textSize="65sp"
-        app:layout_constraintBottom_toTopOf="@+id/callButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button0" />
 
     <TextView
-        android:id="@+id/button0"
+        android:id="@+id/button7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="36dp"
         android:background="@drawable/phone_button"
+        android:backgroundTint="@null"
         android:padding="20dp"
-        android:text="0"
+        android:text="7"
         android:textColor="@color/black"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/callButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/buttonStar"
+        app:layout_constraintEnd_toStartOf="@+id/button8" />
+
+    <TextView
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/phone_button"
+        android:backgroundTint="@null"
+        android:padding="20dp"
+        android:text="1"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/button2" />
 
     <TextView
         android:id="@+id/buttonHash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="180dp"
         android:background="@drawable/phone_button"
         android:padding="20dp"
         android:text="#"
         android:textColor="@color/black"
         android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/callButton"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button0" />
+
+    <TextView
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/phone_button"
+        android:backgroundTint="@null"
+        android:padding="20dp"
+        android:text="4"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/button7"
+        app:layout_constraintEnd_toStartOf="@+id/button5" />
+
+    <TextView
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/phone_button"
+        android:backgroundTint="@null"
+        android:padding="20dp"
+        android:text="8"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/button0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/phone_button"
+        android:backgroundTint="@null"
+        android:padding="20dp"
+        android:text="5"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/button8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/phone_button"
+        android:backgroundTint="@null"
+        android:padding="20dp"
+        android:text="3"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintStart_toEndOf="@+id/button2" />
 
     <TextView
         android:id="@+id/callButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/call_button"
         android:fontFamily="@font/noto_sans_bold"
         android:padding="10dp"
@@ -199,16 +223,19 @@
         android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/button0"
+        app:layout_constraintStart_toStartOf="@+id/buttonStar"
+        app:layout_constraintTop_toBottomOf="@+id/button0" />
 
     <TextView
         android:id="@+id/phoneNumberText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="40dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="55 555  555 55"
+        android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -219,7 +246,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/call_button"
         android:fontFamily="@font/noto_sans_bold"
         android:padding="10dp"
@@ -227,14 +253,14 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumberText"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/deleteDigit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="28dp"
-        android:layout_marginBottom="10dp"
         android:background="@drawable/call_button"
         android:fontFamily="@font/noto_sans_bold"
         android:padding="10dp"
@@ -242,7 +268,8 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/phoneNumberText"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

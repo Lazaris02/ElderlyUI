@@ -56,111 +56,111 @@
         android:id="@+id/pillsApp"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="256dp"
-        android:scaleType="fitCenter"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_button"
         android:clickable="false"
         android:cropToPadding="true"
         android:fadingEdge="none"
+        android:scaleType="fitCenter"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
-        app:srcCompat="@drawable/pills"/>
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        app:srcCompat="@drawable/pills" />
 
     <TextView
         android:id="@+id/textPills"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="2dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/pills"
         android:textColor="@color/black"
         android:textSize="26sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pillsApp" />
+        app:layout_constraintBottom_toBottomOf="@+id/textPosition"
+        app:layout_constraintEnd_toEndOf="@+id/pillsApp"
+        app:layout_constraintStart_toStartOf="@+id/pillsApp"
+        app:layout_constraintTop_toTopOf="@+id/textPosition" />
+
 
     <ImageButton
         android:id="@+id/callApp"
-        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="132dp"
         android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textCall"
+        app:layout_constraintEnd_toStartOf="@+id/jokesApp"
+        app:layout_constraintHorizontal_bias="0.18"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pillsApp"
         app:srcCompat="@drawable/call" />
 
     <TextView
         android:id="@+id/textCall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/call"
         android:textColor="@color/black"
         android:textSize="26sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/callApp" />
-
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/callApp"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="@+id/callApp" />
 
     <ImageButton
         android:id="@+id/jokesApp"
-        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginTop="132dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/textJokes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/positionApp"
         app:srcCompat="@drawable/jokes" />
 
     <TextView
         android:id="@+id/textJokes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/jokes"
         android:textColor="@color/black"
         android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/jokesApp" />
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="@+id/jokesApp"
+        app:layout_constraintStart_toStartOf="@+id/jokesApp" />
 
     <ImageButton
         android:id="@+id/positionApp"
-        android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
+        android:scaleType="fitCenter"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/position" />
 
     <TextView
         android:id="@+id/textPosition"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="150dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="@string/positions"
         android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/positionApp" />
+        app:layout_constraintEnd_toEndOf="@+id/positionApp"
+        app:layout_constraintStart_toStartOf="@+id/positionApp"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <View
         android:id="@+id/view"
@@ -177,10 +177,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
-        android:text="@string/widgetText"
-        android:textSize="24dp"
-        android:textColor="@color/white"
         android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/widgetText"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainToolBar" />
 
@@ -199,14 +200,14 @@
         android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/rounded_button"
         android:clickable="false"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/danger"
         android:visibility="gone"
 
@@ -233,13 +234,13 @@
         android:scaleType="fitCenter"
         android:layout_width="140dp"
         android:layout_height="140dp"
-        android:layout_marginTop="256dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_button"
         android:cropToPadding="true"
         android:fadingEdge="none"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainToolBar"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         app:srcCompat="@drawable/list"
         android:visibility="gone"
         />
@@ -259,5 +260,94 @@
         android:visibility="gone"
 
         />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@color/weatherBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        />
+
+    <ImageButton
+        android:id="@+id/personImage1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/caller_background"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/male" />
+
+    <ImageButton
+        android:id="@+id/personImage2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/caller_background"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toStartOf="@+id/personImage3"
+        app:layout_constraintStart_toEndOf="@+id/personImage1"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/male" />
+
+    <ImageButton
+        android:id="@+id/personImage3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/caller_background"
+        android:padding="20dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/male" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Πάρε\nΜήτσο"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="@+id/personImage1"
+        app:layout_constraintStart_toStartOf="@+id/personImage1"
+        app:layout_constraintTop_toBottomOf="@+id/personImage1" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Πάρε\nΘοδωρή"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="@+id/personImage2"
+        app:layout_constraintStart_toStartOf="@+id/personImage2"
+        app:layout_constraintTop_toBottomOf="@+id/personImage2" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Πάρε\n Λία"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toEndOf="@+id/personImage3"
+        app:layout_constraintStart_toStartOf="@+id/personImage3"
+        app:layout_constraintTop_toBottomOf="@+id/personImage3" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -129,6 +129,31 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        findViewById(R.id.personImage1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), CallActivity.class);
+                myIntent.putExtra("callerId","Mitsos");
+                startActivity(myIntent);
+            }
+        });
+        findViewById(R.id.personImage2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), CallActivity.class);
+                myIntent.putExtra("callerId","Thodoris");
+                startActivity(myIntent);
+            }
+        });
+        findViewById(R.id.personImage3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(v.getContext(), CallActivity.class);
+                myIntent.putExtra("callerId","Lia");
+                startActivity(myIntent);
+            }
+        });
     }
 
     private void setupAppObjects(){

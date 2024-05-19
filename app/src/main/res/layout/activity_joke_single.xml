@@ -12,7 +12,6 @@
         android:id="@+id/exit_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/exitbackground"
         android:fontFamily="@font/noto_sans_bold"
         android:padding="20dp"
@@ -21,7 +20,9 @@
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.59"
+        app:layout_constraintStart_toEndOf="@+id/backArrow"
+        app:layout_constraintTop_toBottomOf="@+id/theJoke" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -37,24 +38,25 @@
         android:id="@+id/imageView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toStartOf="@+id/jokeTitle"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:alpha="1"
+        app:layout_constraintBottom_toTopOf="@+id/jokeTitle"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/jokes" />
 
     <TextView
         android:id="@+id/jokeTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="76dp"
-        android:layout_marginEnd="152dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="Title Here"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="26sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -64,8 +66,33 @@
         android:layout_marginTop="56dp"
         android:fontFamily="@font/noto_sans_bold"
         android:text="The Joke Text"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintTop_toBottomOf="@+id/jokeTitle"
         tools:layout_editor_absoluteX="0dp" />
+
+    <ImageButton
+        android:id="@+id/backArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:background="@android:color/transparent"
+        app:layout_constraintBottom_toBottomOf="@+id/exit_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/exit_text"
+        app:srcCompat="@drawable/arrow_back" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Προηγούμενη\n Σελίδα"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="@+id/backArrow"
+        app:layout_constraintStart_toStartOf="@+id/backArrow"
+        app:layout_constraintTop_toBottomOf="@+id/backArrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

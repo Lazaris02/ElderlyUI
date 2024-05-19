@@ -43,13 +43,13 @@ import java.util.TimeZone;
 
 public class PositionsActivity extends AppCompatActivity {
 
-    private TextView city_text;
     private TextView street_text;
     private TextToSpeech tts;
     private String currDate,street_loc,temperature;
     FusedLocationProviderClient fusedLocationProviderClient;
     private final static int REQUEST_CODE=100; //for location
 
+    private String message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +86,6 @@ public class PositionsActivity extends AppCompatActivity {
         checkForLocationPermission();
 
         //get all the views I need
-        city_text = findViewById(R.id.city_text);
         TextView date_text = findViewById(R.id.textDate);
         street_text = findViewById(R.id.street_text);
         TextView help_button = findViewById(R.id.help_button); //redirects to the dangerApp
@@ -103,23 +102,6 @@ public class PositionsActivity extends AppCompatActivity {
         modifyTemperature();
         getLocation();
 
-        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
-            @Override
-            public void onInit(int status) {
-                if (status == TextToSpeech.SUCCESS) {
-                    //set the language to Greek
-                    int result = tts.setLanguage(new Locale("el")); //set language greek
-                    if(result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                        Toast.makeText(PositionsActivity.this,"Text to speech not Supported",Toast.LENGTH_SHORT).show();
-                    }
-                    String message = "Σήμερα είναι " + currDate + " και βρίσκεστε στη τοποθεσία "+street_loc
-                            +". Η θερμοκρασία είναι "+temperature+". Αν βρίσκεστε σε κίνδυνο πατήστε το" +
-                            " κόκκινο κουμπί. Αν χρειάζεστε μεταφορικό μέσο πατήστε το κίτρινο κουμπί!";
-                    speak(message);
-                }
-            }
-        });
-
 
 
 
@@ -130,6 +112,7 @@ public class PositionsActivity extends AppCompatActivity {
                 shutDownTts();
                 Intent myIntent = new Intent(v.getContext(),DangerActivity.class);
                 startActivity(myIntent);
+                finish();
             }
         });
 
@@ -141,6 +124,7 @@ public class PositionsActivity extends AppCompatActivity {
                 Intent myIntent = new Intent(v.getContext(),MainActivity.class);
                 //pack the variables the activity needs
                 startActivity(myIntent);
+                finish();
             }
         });
 
@@ -151,12 +135,33 @@ public class PositionsActivity extends AppCompatActivity {
                 * as parameter*/
                 shutDownTts();
                 Intent myIntent = new Intent(v.getContext(),CallActivity.class);
-                myIntent.putExtra("taxiNumber","8888888");
+                myIntent.putExtra("callerId","Taxi");
                 startActivity(myIntent);
+                finish();
+            }
+        });
+
+        tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status == TextToSpeech.SUCCESS) {
+                    //set the language to Greek
+                    int result = tts.setLanguage(new Locale("el")); //set language greek
+                    if(result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
+                        Toast.makeText(PositionsActivity.this,"Text to speech not Supported",Toast.LENGTH_SHORT).show();
+                    }else{
+                        if(message!=null){
+                            speak(message);
+                        }
+                    }
+                }
             }
         });
 
     }
+
+
+
     private String getDate(String cityTimeZone){
         /*gets the current date in greek and returns it as a String*/
         Date currentDate = new Date();
@@ -216,10 +221,13 @@ public class PositionsActivity extends AppCompatActivity {
                                 try {
                                     List<Address> addressList = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
                                     Address address = addressList.get(0); //extract the info we need
-                                    String city = address.getLocality()+" "+address.getCountryName();
-                                    city_text.setText(city);
                                     street_loc = address.getAddressLine(0);
                                     street_text.setText(street_loc);
+                                    Log.e("HIIIIIIIIIIIIIIIIIIIIIIIIIIII",location.toString());
+                                     message = "Σήμερα είναι " + currDate + " και βρίσκεστε στη τοποθεσία "+street_loc
+                                            +". Η θερμοκρασία είναι "+temperature+". Αν βρίσκεστε σε κίνδυνο πατήστε το" +
+                                            " κόκκινο κουμπί. Αν χρειάζεστε μεταφορικό μέσο πατήστε το κίτρινο κουμπί!";
+                                    speak(message);
 
                                 } catch (IOException e) {
                                     throw new RuntimeException(e);
