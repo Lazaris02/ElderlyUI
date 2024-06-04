@@ -130,6 +130,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        pillsIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent=new Intent(view.getContext(),PillsActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+
         findViewById(R.id.personImage1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#6EBE45"
+    tools:context=".AddPillsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/input_message"
+            android:layout_width="236dp"
+            android:layout_height="140dp"
+            android:layout_marginBottom="620dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="182dp"
+            android:layout_height="49dp"
+            android:layout_marginBottom="56dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:text="Έξοδος"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/before"
+            android:layout_width="179dp"
+            android:layout_height="84dp"
+            android:layout_marginBottom="288dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:text="Προηγούμενη\nσελίδα"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.121"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/next"
+            android:layout_width="170dp"
+            android:layout_height="106dp"
+            android:layout_marginBottom="276dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:text="Επόμενη\nσελίδα"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.9"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/exit_text"
+            android:layout_width="226dp"
+            android:layout_height="127dp"
+            android:layout_marginBottom="124dp"
+            android:background="@drawable/joke_background"
+            android:fontFamily="@font/noto_sans_bold"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/emergency_exit" />
+
+        <ImageView
+            android:layout_width="103dp"
+            android:layout_height="115dp"
+            android:layout_marginBottom="808dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/hospital" />
+
+        <ImageView
+            android:layout_width="322dp"
+            android:layout_height="130dp"
+            android:layout_marginBottom="476dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/added_pill_background" />
+
+        <EditText
+            android:id="@+id/pill_input"
+            android:layout_width="208dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="516dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ImageView
+            android:id="@+id/beforeImage"
+            android:layout_width="216dp"
+            android:layout_height="103dp"
+            android:layout_marginBottom="388dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.021"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/left" />
+
+        <ImageView
+            android:id="@+id/nextImage"
+            android:layout_width="216dp"
+            android:layout_height="103dp"
+            android:layout_marginBottom="388dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/right" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
