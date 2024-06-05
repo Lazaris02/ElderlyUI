@@ -16,6 +16,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.elderlyui.models.Pill;
+import com.example.elderlyui.persistence.MyApp;
 
 public class AddPillsActivity extends AppCompatActivity {
     private Pill pill;
@@ -175,6 +176,7 @@ public class AddPillsActivity extends AppCompatActivity {
                 pill.setNoon(noon.isChecked());
                 pill.setNight(night.isChecked());
                 pill.setMesimeri(mesimeri.isChecked());
+                ((MyApp) getApplication()).addPill(pill);
             }
         });
     }

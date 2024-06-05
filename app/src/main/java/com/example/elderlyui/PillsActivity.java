@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.elderlyui.persistence.MyApp;
+
 public class PillsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
+        System.out.println(((MyApp) getApplication()).getPills());
         super.onCreate(savedInstanceState);
         // Remove the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
