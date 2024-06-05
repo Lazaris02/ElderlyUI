@@ -3,33 +3,70 @@ package com.example.elderlyui.models;
 public class Pill {
     private String name;
     private String dose;
-    private String times;
-    public Pill(String name,String dose,String times){
-        this.name=name;
-        this.dose=dose;
-        this.times=times;
+    private boolean morning;
+    private boolean mesimeri;
+    private boolean noon;
+    private boolean night;
+
+    public Pill(String name, String dose) {
+        this.name = name;
+        this.dose = dose;
     }
-    public Pill(){
-        this.name=null;
-        this.dose=null;
-        this.times=null;
+
+    public Pill() {
+        this.name = null;
+        this.dose = null;
+        this.morning = false;
+        this.mesimeri = false;
+        this.noon = false;
+        this.night = false;
     }
-    public void setName(String name){
-        this.name=name;
+
+    public void setName(String name) {
+        this.name = name;
     }
-    public void setDose(String dose){
-        this.dose=dose;
+
+    public void setDose(String dose) {
+        this.dose = dose;
     }
-    public void setTimes(String times){
-        this.times=times;
+
+    public void setMorning(boolean morning) {
+        this.morning = morning;
     }
-    public String getName(){
+
+    public void setMesimeri(boolean mesimeri) {
+        this.mesimeri = mesimeri;
+    }
+
+    public void setNoon(boolean noon) {
+        this.noon = noon;
+    }
+
+    public void setNight(boolean night) {
+        this.night = night;
+    }
+
+    public String getName() {
         return this.name;
     }
-    public String getDose(){
+
+    public String getDose() {
         return this.dose;
     }
-    public String getTimes(){
-        return this.times;
+
+    public boolean isMesimeri() {
+        return mesimeri;
+    }
+
+    public boolean isMorning() {
+        return morning;
+    }
+
+    public boolean isNight() {
+        return night;
+    }
+
+    public boolean isNoon() {
+        return noon;
     }
 }

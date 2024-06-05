@@ -7,6 +7,7 @@ import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -25,29 +26,19 @@ public class AddPillsActivity extends AppCompatActivity {
     TextView left;
     TextView right;
     ImageView exit;
+    CheckBox morning;
+    CheckBox mesimeri;
+    CheckBox noon;
+    CheckBox night;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         pill=new Pill();
-        setContentView(R.layout.add_pills);
-        addedPill = findViewById(R.id.pill_input);
-        messageText = findViewById(R.id.input_message);
-        next=findViewById(R.id.nextImage);
-        before=findViewById(R.id.beforeImage);
-        left=findViewById(R.id.before);
-        right=findViewById(R.id.next);
-        exit=findViewById(R.id.exit_text);
-        exit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
-                startActivity(myIntent);
-                finish();
-            }
-        });
         addName();
     }
     private void addName(){
+        setContentView(R.layout.add_pills);
+        onClicks();
         addedPill.setText(pill.getName());
         String text = "Πληκτρολόγησε το \nόνομα του \nΦαρμάκου";
 
@@ -76,7 +67,6 @@ public class AddPillsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String addedPillstr=addedPill.getText().toString();
-                System.out.println(addedPillstr);
                 if(addedPillstr.isEmpty()){
                     Toast.makeText(getApplicationContext(), "ΠΡΟΣΘΕΣΤΕ ΟΝΟΜΑ ΦΑΡΜΑΚΟΥ", Toast.LENGTH_SHORT).show();
                 }
@@ -88,6 +78,8 @@ public class AddPillsActivity extends AppCompatActivity {
         });
     }
     private void setDose(){
+        setContentView(R.layout.add_pills);
+        onClicks();
         addedPill.setText(pill.getDose());
         String text = "Πληκτρολόγησε τη \nδοσολογία του Φαρμάκου";
 
@@ -116,7 +108,8 @@ public class AddPillsActivity extends AppCompatActivity {
         before.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pill.setDose(null);
+                String addedDosestr=addedPill.getText().toString();
+                pill.setDose(addedDosestr);
                 addName();
             }
         });
@@ -126,7 +119,6 @@ public class AddPillsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String addedDosestr=addedPill.getText().toString();
-                System.out.println(addedDosestr);
                 if(addedDosestr.isEmpty()){
                     Toast.makeText(getApplicationContext(), "ΠΡΟΣΘΕΣΤΕ ΔΟΣΟΛΟΓΙΑ ΦΑΡΜΑΚΟΥ", Toast.LENGTH_SHORT).show();
                 }
@@ -138,7 +130,12 @@ public class AddPillsActivity extends AppCompatActivity {
         });
     }
     private void setTimes(){
-        addedPill.setText(pill.getTimes());
+        setContentView(R.layout.add_times);
+        onClicks();
+        morning.setChecked(pill.isMorning());
+        mesimeri.setChecked(pill.isMesimeri());
+        noon.setChecked(pill.isNoon());
+        night.setChecked(pill.isNight());
         String text = "Πόσες φορές την \nμέρα θα \nλαμβάνεται το \nφάρμακο";
 
 
@@ -162,7 +159,10 @@ public class AddPillsActivity extends AppCompatActivity {
         before.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pill.setTimes(null);
+                pill.setMorning(morning.isChecked());
+                pill.setNoon(noon.isChecked());
+                pill.setNight(night.isChecked());
+                pill.setMesimeri(mesimeri.isChecked());
                 setDose();
             }
         });
@@ -171,15 +171,31 @@ public class AddPillsActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String addedTimestr=addedPill.getText().toString();
-                System.out.println(addedTimestr);
-                if(addedTimestr.isEmpty()){
-                    Toast.makeText(getApplicationContext(), "ΠΡΟΣΘΕΣΤΕ ΤΙΣ ΦΟΡΕΣ ΠΟΥ ΘΑ ΛΑΜΒΑΝΕΤΕ ΤΟ ΦΑΡΜΑΚΟ ΚΑΘΗΜΕΡΙΝΑ", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    pill.setTimes(addedTimestr);
-                    setDose();
-                }
+                pill.setMorning(morning.isChecked());
+                pill.setNoon(noon.isChecked());
+                pill.setNight(night.isChecked());
+                pill.setMesimeri(mesimeri.isChecked());
+            }
+        });
+    }
+    private void onClicks(){
+        addedPill = findViewById(R.id.pill_input);
+        messageText = findViewById(R.id.input_message);
+        next=findViewById(R.id.nextImage);
+        before=findViewById(R.id.beforeImage);
+        left=findViewById(R.id.before);
+        right=findViewById(R.id.next);
+        exit=findViewById(R.id.exit_text);
+        morning=findViewById(R.id.morning);
+        mesimeri=findViewById(R.id.mesimeri);
+        noon=findViewById(R.id.evening);
+        night=findViewById(R.id.night);
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                startActivity(myIntent);
+                finish();
             }
         });
     }
