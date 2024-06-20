@@ -14,8 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.elderlyui.persistence.MyApp;
 
 public class PillsActivity extends AppCompatActivity {
-    protected void onCreate(Bundle savedInstanceState){
-        System.out.println(((MyApp) getApplication()).getPills());
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Remove the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -26,21 +25,28 @@ public class PillsActivity extends AppCompatActivity {
 
 
         setContentView(R.layout.pills);
-        ImageView exitText=findViewById(R.id.exit_text);
-        ImageView addPill=findViewById(R.id.add_text);
-        ImageView removePill=findViewById(R.id.remove_text);
-        ImageView viewCalendar=findViewById(R.id.program_text);
+        ImageView exitText = findViewById(R.id.exit_text);
+        ImageView addPill = findViewById(R.id.add_text);
+        ImageView removePill = findViewById(R.id.remove_text);
+        ImageView viewCalendar = findViewById(R.id.program_text);
         exitText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent = new Intent(v.getContext(),MainActivity.class);
+                Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                 startActivity(myIntent);
             }
         });
         addPill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent=new Intent(view.getContext(),AddPillsActivity.class);
+                Intent myIntent = new Intent(view.getContext(), AddPillsActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        viewCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), ViewCalendarActivity.class);
                 startActivity(myIntent);
             }
         });

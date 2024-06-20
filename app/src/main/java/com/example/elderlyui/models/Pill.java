@@ -8,11 +8,6 @@ public class Pill {
     private boolean noon;
     private boolean night;
 
-    public Pill(String name, String dose) {
-        this.name = name;
-        this.dose = dose;
-    }
-
     public Pill() {
         this.name = null;
         this.dose = null;
@@ -32,10 +27,15 @@ public class Pill {
 
     public void setMorning(boolean morning) {
         this.morning = morning;
+
+
+
     }
 
     public void setMesimeri(boolean mesimeri) {
         this.mesimeri = mesimeri;
+
+
     }
 
     public void setNoon(boolean noon) {

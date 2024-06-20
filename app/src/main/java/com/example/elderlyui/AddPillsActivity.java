@@ -24,6 +24,7 @@ public class AddPillsActivity extends AppCompatActivity {
     TextView messageText;
     ImageView next;
     ImageView before;
+    ImageView viewCalendar;
     TextView left;
     TextView right;
     ImageView exit;
@@ -177,12 +178,32 @@ public class AddPillsActivity extends AppCompatActivity {
                 pill.setNight(night.isChecked());
                 pill.setMesimeri(mesimeri.isChecked());
                 ((MyApp) getApplication()).addPill(pill);
+                setContentView(R.layout.pill_added);
+                ImageView addNew=findViewById(R.id.add_text);
+                viewCalendar=findViewById(R.id.program_text);
+                viewCalendar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent myIntent = new Intent(view.getContext(), ViewCalendarActivity.class);
+                        startActivity(myIntent);
+                        finish();
+                    }
+                });
+                addNew.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent myIntent = new Intent(view.getContext(), AddPillsActivity.class);
+                        startActivity(myIntent);
+                        finish();
+                    }
+                });
             }
         });
     }
     private void onClicks(){
         addedPill = findViewById(R.id.pill_input);
         messageText = findViewById(R.id.input_message);
+
         next=findViewById(R.id.nextImage);
         before=findViewById(R.id.beforeImage);
         left=findViewById(R.id.before);
@@ -200,5 +221,6 @@ public class AddPillsActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 }

@@ -18,7 +18,8 @@ public class MyApp extends Application {
     public void addPill(Pill pill){
         pills.add(pill);
     }
-    public List<Pill> getPills(){
+
+    public List<Pill> getPills() {
         return pills;
     }
 }
