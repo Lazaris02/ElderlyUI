@@ -9,4 +9,5 @@
     <color name="greenExit">#32CD32</color>
     <color name="phone_button_background">#9E9E9E</color>
     <color name="phone_background">#FFEB3B</color>
+    <color name="red">#FF0000</color>
 </resources>

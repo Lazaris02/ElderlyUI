@@ -139,6 +139,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        listIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent=new Intent(view.getContext(),TefteriActivity.class);
+                startActivity(myIntent);
+
+            }
+        });
+
         findViewById(R.id.personImage1).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

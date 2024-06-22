@@ -27,6 +27,7 @@ public class AddPillsActivity extends AppCompatActivity {
     ImageView viewCalendar;
     TextView left;
     TextView right;
+    TextView addedDose;
     ImageView exit;
     CheckBox morning;
     CheckBox mesimeri;
@@ -60,6 +61,7 @@ public class AddPillsActivity extends AppCompatActivity {
 
 
         messageText.setText(spannableString);
+        addedDose.setVisibility(TextView.GONE);
         before.setVisibility(TextView.GONE);
         left.setVisibility(TextView.GONE);
 
@@ -102,15 +104,18 @@ public class AddPillsActivity extends AppCompatActivity {
 
         messageText.setText(spannableString);
 
+
         //Set visibility from stuff that was not visible before
         before.setVisibility(TextView.VISIBLE);
         left.setVisibility(TextView.VISIBLE);
+        addedPill.setVisibility(TextView.GONE);
+        addedDose.setVisibility(TextView.VISIBLE);
 
         //User goes back
         before.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String addedDosestr=addedPill.getText().toString();
+                String addedDosestr=addedDose.getText().toString();
                 pill.setDose(addedDosestr);
                 addName();
             }
@@ -120,7 +125,7 @@ public class AddPillsActivity extends AppCompatActivity {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String addedDosestr=addedPill.getText().toString();
+                String addedDosestr=addedDose.getText().toString();
                 if(addedDosestr.isEmpty()){
                     Toast.makeText(getApplicationContext(), "ΠΡΟΣΘΕΣΤΕ ΔΟΣΟΛΟΓΙΑ ΦΑΡΜΑΚΟΥ", Toast.LENGTH_SHORT).show();
                 }
@@ -156,6 +161,7 @@ public class AddPillsActivity extends AppCompatActivity {
 
 
         messageText.setText(spannableString);
+
 
         //User goes back
         before.setOnClickListener(new View.OnClickListener() {
@@ -202,6 +208,7 @@ public class AddPillsActivity extends AppCompatActivity {
     }
     private void onClicks(){
         addedPill = findViewById(R.id.pill_input);
+        addedDose=findViewById(R.id.pill_dose_input);
         messageText = findViewById(R.id.input_message);
 
         next=findViewById(R.id.nextImage);

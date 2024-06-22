@@ -59,6 +59,12 @@
         <activity android:name=".ViewCalendarActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".RemovePillActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".TefteriActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

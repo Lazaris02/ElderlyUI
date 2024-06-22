@@ -110,7 +110,7 @@
         android:layout_marginBottom="92dp"
         android:fontFamily="@font/noto_sans_bold"
         android:gravity="center"
-        android:text="Πρόγραμμα"
+        android:text="Ημερήσιο\nΠρόγραμμα"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"

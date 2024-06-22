@@ -5,13 +5,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.elderlyui.persistence.MyApp;
 
 public class PillsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +43,13 @@ public class PillsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent myIntent = new Intent(view.getContext(), ViewCalendarActivity.class);
+                startActivity(myIntent);
+            }
+        });
+        removePill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), RemovePillActivity.class);
                 startActivity(myIntent);
             }
         });

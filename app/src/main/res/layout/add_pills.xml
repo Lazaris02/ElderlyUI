@@ -113,6 +113,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+        <EditText
+            android:id="@+id/pill_dose_input"
+            android:layout_width="208dp"
+            android:layout_height="58dp"
+            android:layout_marginBottom="516dp"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <ImageView
             android:id="@+id/beforeImage"
             android:layout_width="216dp"
