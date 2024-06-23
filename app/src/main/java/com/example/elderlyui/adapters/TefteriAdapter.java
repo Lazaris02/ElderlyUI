@@ -44,7 +44,7 @@ public class TefteriAdapter extends RecyclerView.Adapter<TefteriAdapter.SuperMar
     public void onBindViewHolder(@NonNull SuperMarketViewHolder holder, int position) {
         TefteriItem item = itemList.get(position);
         holder.itemName.setText(item.getName());
-        //holder.removeButton.setVisibility(isDeleteMode ? View.VISIBLE : View.GONE);
+        holder.removeButton.setVisibility(isDeleteMode ? View.VISIBLE : View.GONE);
 
         holder.removeButton.setOnClickListener(new View.OnClickListener() {
             @Override

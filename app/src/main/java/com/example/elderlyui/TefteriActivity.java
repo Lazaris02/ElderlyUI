@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.elderlyui.adapters.TefteriAdapter;
 import com.example.elderlyui.models.TefteriItem;
 import com.example.elderlyui.persistence.MyApp;
@@ -28,10 +27,10 @@ public class TefteriActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private TefteriAdapter superMarketAdapter;
     private Button writeButton, deleteButton;
-
-    private Button  confirmButton;
+    private Button confirmButton;
     private EditText itemInput;
     private LinearLayout inputLayout;
+    private View backgroundOverlay;
     private boolean isDeleteMode = false;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -52,8 +51,9 @@ public class TefteriActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         inputLayout = findViewById(R.id.input_layout);
-        confirmButton = inputLayout.findViewById(R.id.confirm_button); // Correct way to find confirmButton
+        confirmButton = inputLayout.findViewById(R.id.confirm_button);
         itemInput = inputLayout.findViewById(R.id.item_input);
+        backgroundOverlay = findViewById(R.id.background_overlay);
 
         MyApp myApp = (MyApp) getApplicationContext();
         List<TefteriItem> itemList = myApp.getSupermarketItems();
@@ -70,7 +70,7 @@ public class TefteriActivity extends AppCompatActivity {
         writeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                backgroundOverlay.setVisibility(View.VISIBLE);
                 inputLayout.setVisibility(View.VISIBLE);
                 itemInput.requestFocus();
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -81,7 +81,6 @@ public class TefteriActivity extends AppCompatActivity {
         confirmButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                System.out.println("fwfqwefqwwefqw");
                 String itemName = itemInput.getText().toString().trim();
                 if (!itemName.isEmpty()) {
                     TefteriItem newItem = new TefteriItem(itemName);
@@ -89,6 +88,7 @@ public class TefteriActivity extends AppCompatActivity {
                     superMarketAdapter.notifyDataSetChanged();
                     itemInput.setText("");
                     inputLayout.setVisibility(View.GONE);
+                    backgroundOverlay.setVisibility(View.GONE);
                 }
                 return false;
             }
@@ -105,7 +105,6 @@ public class TefteriActivity extends AppCompatActivity {
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent myIntent = new Intent(v.getContext(), MainActivity.class);
                 startActivity(myIntent);
             }
