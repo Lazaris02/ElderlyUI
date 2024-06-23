@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp"
+    android:background="@drawable/round_white_border">
+
+    <TextView
+        android:id="@+id/pillName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Pill Name"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/pillDose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="Dose"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        android:gravity="center" />
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:flexWrap="wrap"
+        app:alignItems="center"
+        app:justifyContent="center"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:id="@+id/pillMorning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textColor="@color/white"
+            android:text="Πρωί"
+            android:textSize="30dp"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/pillMesimeri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textColor="@color/white"
+            android:text="Μεσημέρι"
+            android:textSize="30dp"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/pillNoon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textColor="@color/white"
+            android:text="Απόγευμα"
+            android:textSize="30dp"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/pillNight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textColor="@color/white"
+            android:text="Βράδυ"
+            android:textSize="30dp"
+            android:visibility="gone"
+            android:layout_marginEnd="8dp"/>
+    </com.google.android.flexbox.FlexboxLayout>
+</LinearLayout>

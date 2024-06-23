@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
+        android:name=".persistence.MyApp"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -49,7 +50,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".PillsActivity"
+            android:exported="false" />
+        <activity android:name=".AddPillsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ViewCalendarActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".RemovePillActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".TefteriActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#6EBE45"
+    tools:context=".PillsActivity">
+
+
+    <ImageView
+        android:id="@+id/remove_text"
+        android:layout_width="153dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="396dp"
+        android:background="@drawable/joke_background"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/hand_with_a_pill" />
+
+    <ImageView
+        android:id="@+id/exit_text"
+        android:layout_width="152dp"
+        android:layout_height="111dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/joke_background"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.834"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/emergency_exit" />
+
+    <ImageView
+        android:id="@+id/program_text"
+        android:layout_width="132dp"
+        android:layout_height="111dp"
+        android:layout_marginBottom="160dp"
+        android:background="@drawable/joke_background"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.267"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/calendar_pills" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="112dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="332dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:text="Αφαίρεση\nφαρμάκου"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.802"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="104dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="92dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:text="Έξοδος"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.805"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/add_text"
+        android:layout_width="140dp"
+        android:layout_height="127dp"
+        android:layout_marginBottom="396dp"
+        android:background="@drawable/joke_background"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.253"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/hand_with_a_pill" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="124dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="92dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:text="Ημερήσιο\nΠρόγραμμα"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="230dp"
+        android:layout_height="84dp"
+        android:layout_marginBottom="580dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:text="Γειά σου Θοδωρή 👋"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="104dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="332dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="center"
+        android:text="Προσθήκη\nφαρμάκου"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:layout_width="46dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="476dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/minus" />
+
+    <ImageView
+        android:layout_width="46dp"
+        android:layout_height="39dp"
+        android:layout_marginBottom="476dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.427"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/add" />
+
+    <ImageView
+        android:id="@+id/profile"
+        android:layout_width="183dp"
+        android:layout_height="187dp"
+        android:layout_marginBottom="676dp"
+        android:background="@drawable/caller_background"
+        android:fontFamily="@font/noto_sans_bold"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/person" />
+
+    <ImageView
+        android:layout_width="103dp"
+        android:layout_height="115dp"
+        android:layout_marginBottom="808dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/hospital" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

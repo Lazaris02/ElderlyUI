@@ -12,6 +12,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.elderlyui.persistence.MyApp;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,11 +26,13 @@ import java.util.Locale;
 public class JokesListActivity extends AppCompatActivity {
 
     private TextToSpeech tts;
-    private final String[] jokeCategories = {"classicJokes.txt","animalJokes.txt",
-            "familyJokes.txt","smartJokes.txt"};
+    private final String[] jokeCategories = {"classicJokes.txt", "animalJokes.txt",
+            "familyJokes.txt", "smartJokes.txt"};
     private Joke[] jokes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_jokes_list);
@@ -42,8 +46,8 @@ public class JokesListActivity extends AppCompatActivity {
                 if (status == TextToSpeech.SUCCESS) {
                     //set the language to Greek
                     int result = tts.setLanguage(new Locale("el")); //set language greek
-                    if(result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA){
-                        Toast.makeText(JokesListActivity.this,"Text to speech not Supported",Toast.LENGTH_SHORT).show();
+                    if (result == TextToSpeech.LANG_NOT_SUPPORTED || result == TextToSpeech.LANG_MISSING_DATA) {
+                        Toast.makeText(JokesListActivity.this, "Text to speech not Supported", Toast.LENGTH_SHORT).show();
                     }
                     String message = "Πατήστε πάνω σε έναν από τους τίτλους για να " +
                             "διαβάσετε το ανέκδοτο!";
@@ -53,13 +57,14 @@ public class JokesListActivity extends AppCompatActivity {
         });
 
         //we receive input of which jokes we need
-        int jokeType = getIntent().getIntExtra("jokesCategory",0);
+        int jokeType = getIntent().getIntExtra("jokesCategory", 0);
         setupJokes(jokeCategories[jokeType]);
         ListView jokesList = (ListView) findViewById(R.id.jokesList);
-        CustomAdapter adapter = new CustomAdapter(getApplicationContext(),jokes);
+        CustomAdapter adapter = new CustomAdapter(getApplicationContext(), jokes);
         jokesList.setAdapter(adapter);
     }
-    private void setupJokes(String jokeFile){
+
+    private void setupJokes(String jokeFile) {
         //read from file and create all the Joke objects
         //every joke is split with /// and first line == title
         List<Joke> listJokes = new ArrayList<Joke>();
@@ -72,13 +77,13 @@ public class JokesListActivity extends AppCompatActivity {
             String line;
             while ((line = reader.readLine()) != null) {
 
-                if(isTitle){
+                if (isTitle) {
                     currTitle = line;
                     isTitle = false;
                     continue;
                 }
-                if(line.trim().equals("///")){
-                    listJokes.add(new Joke(currTitle,stringBuilder.toString()));
+                if (line.trim().equals("///")) {
+                    listJokes.add(new Joke(currTitle, stringBuilder.toString()));
                     isTitle = true;
                     stringBuilder.setLength(0); // clear string builder
                     continue;
@@ -100,12 +105,14 @@ public class JokesListActivity extends AppCompatActivity {
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, null);
         }
     }
-    private void shutDownTts(){
+
+    private void shutDownTts() {
         if (tts != null) {
             tts.stop();
             tts.shutdown();
         }
     }
+
     @Override
     protected void onDestroy() {
         shutDownTts();
