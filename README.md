@@ -4,32 +4,22 @@ A UI designed for elderly people with little to no experience with smartphones
 
 
 
-TODOs:
+# Functionalities
 
 
-widget functionality - api call - done 
-pills app functionality
-jokes app functionality with text to speech
-emergency app functionality 
-position functionality - get current position functionality - done
-list app functionality
-phone functionality - dummy 
+weather widget - performs an API call on meteo.com and gets the weather for athens , dynamically changes image.
+pills app functionality - offers add pill , remove pill functionality , view today's pill schedule.
+jokes app functionality with text to speech - offers variety of joke categories and text to speech that reads the joke.
+emergency app functionality - that offers an emergency button and reads the screen with tts.
+position app functionality - offers info on the position , current temperature and date and two buttons 1. emergency button 2. taxi button .
+list app functionality - offers a list that one can note many things.
+phone functionality - functions like a regular phone.
+quick calls - offers bubble-like images that call some specific numbers for example the elderly person's caretaker , or a good friend.
 
-we also need to get the battery and time - done
+# Additional things to note 
 
-we also need to customize warnings etc.
-
-
-
-Small Fixes needed:
--positions app:
- taxibutton click should redirect to instantly-call activity with a specific number.
- dangerButton should redirect to the danger activity
- info should not overflow
- remove city field?? and maybe modify the layout a bit 
-
--jokes app , the titles should not overflow
--caller app , needs the second activity to function
-
-
+Bigger text
+Exit Button Functionality on every screen
+Text to Speech explains what apps have to offer - reducing confusion
+Unique color pallette on each app , easy on the eye colors 
 
